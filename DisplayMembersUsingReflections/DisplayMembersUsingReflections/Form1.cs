@@ -16,13 +16,37 @@ namespace DisplayMembersUsingReflections
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             listProperty.Items.Clear();
-            Type T = Type.GetType(txtSearch.Text);
-            PropertyInfo[] properties=T.GetProperties();
+            listMethod.Items.Clear();
+            listConstructor.Items.Clear();
+
+            //To display properties
+            Type P = Type.GetType(txtSearch.Text);
+            PropertyInfo[] properties=P.GetProperties();
             
             foreach (PropertyInfo property  in properties)
             {
-                listProperty.Items.Add(property.Name);
+                listProperty.Items.Add(property.PropertyType.Name +" "+ property.Name);
             }
+
+            //To display Methods
+            Type M = Type.GetType(txtSearch.Text);
+            MethodInfo[] methods= M.GetMethods();
+
+            foreach (MethodInfo method in methods)
+            {
+                listMethod.Items.Add(method.ReturnType.Name+" "+ method.Name);
+            }
+
+            //To display Methods
+            Type C = Type.GetType(txtSearch.Text);
+            ConstructorInfo[] constructors = C.GetConstructors();
+
+            foreach (ConstructorInfo constructor in constructors)
+            {
+                listConstructor.Items.Add(constructor.MemberType + " "+ constructor.Name); 
+            }
+
+
         }
 
 
