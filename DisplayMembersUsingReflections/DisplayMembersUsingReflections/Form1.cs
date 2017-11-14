@@ -8,17 +8,20 @@ namespace DisplayMembersUsingReflections
     {
         public Form1()
         {
+            this.AutoSize = true;
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             InitializeComponent();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            listProperty.Items.Clear();
             Type T = Type.GetType(txtSearch.Text);
             PropertyInfo[] properties=T.GetProperties();
-
+            
             foreach (PropertyInfo property  in properties)
             {
-                listProperty = property.ToString();
+                listProperty.Items.Add(property.Name);
             }
         }
 
@@ -34,6 +37,9 @@ namespace DisplayMembersUsingReflections
 
         }
 
-        
+        private void lblMethods_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
