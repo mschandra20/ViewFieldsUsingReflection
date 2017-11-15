@@ -45,7 +45,6 @@
             this.listProperty.Location = new System.Drawing.Point(16, 65);
             this.listProperty.Margin = new System.Windows.Forms.Padding(4);
             this.listProperty.Name = "listProperty";
-            this.listProperty.ScrollAlwaysVisible = true;
             this.listProperty.Size = new System.Drawing.Size(289, 436);
             this.listProperty.TabIndex = 0;
             // 
@@ -58,7 +57,6 @@
             this.listMethod.Name = "listMethod";
             this.listMethod.Size = new System.Drawing.Size(289, 436);
             this.listMethod.TabIndex = 1;
-            this.listMethod.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // listConstructor
             // 
@@ -92,7 +90,7 @@
             // lblProperties
             // 
             this.lblProperties.AutoSize = true;
-            this.lblProperties.Location = new System.Drawing.Point(16, 43);
+            this.lblProperties.Location = new System.Drawing.Point(21, 48);
             this.lblProperties.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProperties.Name = "lblProperties";
             this.lblProperties.Size = new System.Drawing.Size(70, 16);
@@ -102,18 +100,17 @@
             // lblMethods
             // 
             this.lblMethods.AutoSize = true;
-            this.lblMethods.Location = new System.Drawing.Point(339, 43);
+            this.lblMethods.Location = new System.Drawing.Point(344, 48);
             this.lblMethods.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMethods.Name = "lblMethods";
             this.lblMethods.Size = new System.Drawing.Size(60, 16);
             this.lblMethods.TabIndex = 6;
             this.lblMethods.Text = "Methods";
-            this.lblMethods.Click += new System.EventHandler(this.lblMethods_Click);
             // 
             // lblConstructor
             // 
             this.lblConstructor.AutoSize = true;
-            this.lblConstructor.Location = new System.Drawing.Point(665, 43);
+            this.lblConstructor.Location = new System.Drawing.Point(670, 48);
             this.lblConstructor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConstructor.Name = "lblConstructor";
             this.lblConstructor.Size = new System.Drawing.Size(82, 16);
@@ -135,7 +132,9 @@
             this.Controls.Add(this.listProperty);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimizeBox = false;
             this.Name = "GetMembers";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "Get Members From The Class";
             this.ResumeLayout(false);
             this.PerformLayout();

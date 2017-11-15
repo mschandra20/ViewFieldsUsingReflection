@@ -17,11 +17,12 @@ namespace DisplayMembersUsingReflections
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            
             ClearLists();
             try
             {
                 Type T = Type.GetType(txtSearch.Text);
-
+                
                 GetAllProperties(T);
                 GetAllMethods(T);
                 GetAllConstructors(T);
@@ -31,13 +32,7 @@ namespace DisplayMembersUsingReflections
                 ExList.Add(ex.Message);
                 MessageBox.Show("Please enter a valid input in the form <Namespace>.<Class> ");
             }
-            finally
-            {
-                //foreach (var l in ExList)
-                //{
-                //    MessageBox.Show(l);
-                //}
-            }
+            
         }
 
 
@@ -87,17 +82,5 @@ namespace DisplayMembersUsingReflections
 
         }
 
-
-
-        //Unused methods
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMethods_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
