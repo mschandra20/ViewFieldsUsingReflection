@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -12,16 +13,31 @@ namespace DisplayMembersUsingReflections
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             InitializeComponent();
         }
+        List<string> ExList = new List<string>();
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             ClearLists();
-            Type T = Type.GetType(txtSearch.Text);
+            try
+            {
+                Type T = Type.GetType(txtSearch.Text);
 
-            GetAllProperties(T);
-            GetAllMethods(T);
-            GetAllConstructors(T);
-
+                GetAllProperties(T);
+                GetAllMethods(T);
+                GetAllConstructors(T);
+            }
+            catch (Exception ex)
+            {
+                ExList.Add(ex.Message);
+                MessageBox.Show("Please enter a valid input in the form <Namespace>.<Class> ");
+            }
+            finally
+            {
+                //foreach (var l in ExList)
+                //{
+                //    MessageBox.Show(l);
+                //}
+            }
         }
 
 
