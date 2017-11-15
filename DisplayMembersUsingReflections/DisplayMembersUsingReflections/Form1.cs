@@ -20,8 +20,8 @@ namespace DisplayMembersUsingReflections
             listConstructor.Items.Clear();
 
             //To display properties
-            Type P = Type.GetType(txtSearch.Text);
-            PropertyInfo[] properties=P.GetProperties();
+            Type T = Type.GetType(txtSearch.Text);
+            PropertyInfo[] properties=T.GetProperties();
             
             foreach (PropertyInfo property  in properties)
             {
@@ -29,21 +29,19 @@ namespace DisplayMembersUsingReflections
             }
 
             //To display Methods
-            Type M = Type.GetType(txtSearch.Text);
-            MethodInfo[] methods= M.GetMethods();
+            MethodInfo[] methods= T.GetMethods();
 
             foreach (MethodInfo method in methods)
             {
                 listMethod.Items.Add(method.ReturnType.Name+" "+ method.Name);
             }
 
-            //To display Methods
-            Type C = Type.GetType(txtSearch.Text);
-            ConstructorInfo[] constructors = C.GetConstructors();
+            //To display Construtors
+            ConstructorInfo[] constructors = T.GetConstructors();
 
             foreach (ConstructorInfo constructor in constructors)
             {
-                listConstructor.Items.Add(constructor.MemberType + " "+ constructor.Name); 
+                listConstructor.Items.Add(constructor.ToString()); 
             }
 
 
